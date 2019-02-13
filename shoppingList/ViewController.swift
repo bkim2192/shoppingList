@@ -13,10 +13,15 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var newItemTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
+    var items:[Item] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        let itemOne = Item(name: "Milk")
+        let itemTwo = Item(name: "Blueberries")
+        items = [itemOne,itemTwo]
+        
         tableView.dataSource = self
     }
     
@@ -24,10 +29,21 @@ class ViewController: UIViewController, UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        <#code#>
+        return 10
+        //self explanatory,
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        // let cell = tableView.dequeueReusableCell(withIdentifier: "myCell")! but can crash
+        //you can spell it wrong
+        
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "myCell"){
+            cell.textLabel?.text = "Hello"
+            return cell
+        } else {
+            return UITableViewCell()
+            // returns blank cell
+        }
+        
     }
 
 }
