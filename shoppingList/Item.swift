@@ -9,9 +9,15 @@
 import Foundation
 class Item{
     var name:String
-
+    var quantity:Int
+    //var price:Int
     init(name:String) {
         self.name = name
+        self.quantity = 1
+    }
+    init(name:String, quantity:Int) {
+        self.name = name
+        self.quantity = quantity
     }
     
     

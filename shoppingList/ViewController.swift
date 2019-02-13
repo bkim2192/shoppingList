@@ -20,7 +20,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         tableView.dataSource = self
         
         
-        let itemOne = Item(name: "Milk")
+        let itemOne = Item(name: "Milk", quantity: 2)
         let itemTwo = Item(name: "Blueberries")
         items = [itemOne,itemTwo]
         let itemThree = Item(name: "Crackers")
@@ -33,7 +33,11 @@ class ViewController: UIViewController, UITableViewDataSource {
     }
     
     @IBAction func newItemButtonPressed(_ sender: Any) {
-        
+        if let newItemName = newItemTextField.text, newItemName != ""{
+            let newItem = Item(name: newItemName)
+            items.append(newItem)
+            tableView.reloadData()
+        }
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
@@ -46,7 +50,7 @@ class ViewController: UIViewController, UITableViewDataSource {
         
         if let cell = tableView.dequeueReusableCell(withIdentifier: "myCell"){
             // takes the index of the cell and matches it with the index of the array, places name in correct cell number
-            //[] is for the index number which would be the same as the array, the name would make it a string
+            //[] is for the index number which would be the same as the array, the .name is from the Item class, which gets the string of the item.
             let itemName = items[indexPath.row].name
             cell.textLabel?.text = itemName
             return cell
