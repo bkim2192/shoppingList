@@ -52,7 +52,13 @@ class ViewController: UIViewController, UITableViewDataSource {
             // takes the index of the cell and matches it with the index of the array, places name in correct cell number
             //[] is for the index number which would be the same as the array, the .name is from the Item class, which gets the string of the item.
             let itemName = items[indexPath.row].name
+            let itemQuantity = items[indexPath.row].quantity
+            cell.detailTextLabel?.textColor = UIColor.white
+            cell.textLabel?.textColor = UIColor.white
+            cell.detailTextLabel?.backgroundColor = UIColor.blue
+            cell.textLabel?.backgroundColor = UIColor.blue
             cell.textLabel?.text = itemName
+            cell.detailTextLabel?.text = "Quantity:\(itemQuantity)"
             return cell
         } else {
             return UITableViewCell()
