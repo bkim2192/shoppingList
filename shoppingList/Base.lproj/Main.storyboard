@@ -65,6 +65,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="hjf-VK-ad2">
                         <nil key="title"/>
+                        <barButtonItem key="leftBarButtonItem" title="Remove" id="JZs-5T-XnC"/>
                         <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Item..." textAlignment="natural" minimumFontSize="17" id="Czm-sR-dQu">
                             <rect key="frame" x="140.5" y="7" width="94" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -99,6 +100,9 @@
                                 <rect key="frame" x="154" y="489" width="122" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="whenButtonPressed:" destination="YcN-iM-rOc" eventType="touchUpInside" id="hs3-oR-XcR"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zyf-lW-G6B">
                                 <rect key="frame" x="48" y="206" width="279" height="45"/>

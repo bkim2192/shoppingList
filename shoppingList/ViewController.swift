@@ -14,6 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var newItemTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var items:[Item] = []
+    var currentView = ViewController.self
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,10 +72,29 @@ class ViewController: UIViewController, UITableViewDataSource {
             let nvc = segue.destination as! SecondViewController
             let currentItem = items[indexPath.row]
             nvc.passedItem = currentItem
+            
+            
         }
+    }
+    // +++++++++++++++++++++++++++++
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+         return true
+        
+    
     }
     
     
+   
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+        }
+    }
+  
+    
+    
+    //++++++++++++++++++++++++++++++
 }
 
