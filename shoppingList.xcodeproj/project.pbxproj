@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F67F09B722136CCF008BEA00 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = F67F09B622136CCF008BEA00 /* Item.swift */; };
+		13A0FDE3246A102A006E65AD /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0FDE2246A102A006E65AD /* Name.swift */; };
+		13A0FDE5246A1607006E65AD /* AddNewPersonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13A0FDE4246A1607006E65AD /* AddNewPersonViewController.swift */; };
 		F6EDF3CD220E242F00420BF1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EDF3CC220E242F00420BF1 /* AppDelegate.swift */; };
 		F6EDF3CF220E242F00420BF1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EDF3CE220E242F00420BF1 /* ViewController.swift */; };
 		F6EDF3D2220E242F00420BF1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6EDF3D0220E242F00420BF1 /* Main.storyboard */; };
@@ -17,8 +18,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		F67F09B622136CCF008BEA00 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		F6EDF3C9220E242F00420BF1 /* shoppingList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shoppingList.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		13A0FDE2246A102A006E65AD /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
+		13A0FDE4246A1607006E65AD /* AddNewPersonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewPersonViewController.swift; sourceTree = "<group>"; };
+		F6EDF3C9220E242F00420BF1 /* ProfileOrganizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProfileOrganizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6EDF3CC220E242F00420BF1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6EDF3CE220E242F00420BF1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F6EDF3D1220E242F00420BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -50,7 +52,7 @@
 		F6EDF3CA220E242F00420BF1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				F6EDF3C9220E242F00420BF1 /* shoppingList.app */,
+				F6EDF3C9220E242F00420BF1 /* ProfileOrganizer.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -60,12 +62,13 @@
 			children = (
 				F6EDF3CC220E242F00420BF1 /* AppDelegate.swift */,
 				F6EDF3CE220E242F00420BF1 /* ViewController.swift */,
-				F67F09B622136CCF008BEA00 /* Item.swift */,
 				F6EDF3D0220E242F00420BF1 /* Main.storyboard */,
 				F6F0437822160B3900744D72 /* SecondViewController.swift */,
 				F6EDF3D3220E243200420BF1 /* Assets.xcassets */,
 				F6EDF3D5220E243200420BF1 /* LaunchScreen.storyboard */,
 				F6EDF3D8220E243200420BF1 /* Info.plist */,
+				13A0FDE2246A102A006E65AD /* Name.swift */,
+				13A0FDE4246A1607006E65AD /* AddNewPersonViewController.swift */,
 			);
 			path = shoppingList;
 			sourceTree = "<group>";
@@ -87,7 +90,7 @@
 			);
 			name = shoppingList;
 			productName = shoppingList;
-			productReference = F6EDF3C9220E242F00420BF1 /* shoppingList.app */;
+			productReference = F6EDF3C9220E242F00420BF1 /* ProfileOrganizer.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -143,7 +146,8 @@
 			files = (
 				F6F0437922160B3900744D72 /* SecondViewController.swift in Sources */,
 				F6EDF3CF220E242F00420BF1 /* ViewController.swift in Sources */,
-				F67F09B722136CCF008BEA00 /* Item.swift in Sources */,
+				13A0FDE5246A1607006E65AD /* AddNewPersonViewController.swift in Sources */,
+				13A0FDE3246A102A006E65AD /* Name.swift in Sources */,
 				F6EDF3CD220E242F00420BF1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -297,7 +301,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.d214.jhhs.822192.shoppingList;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ProfileOrganizer;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -314,7 +318,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = org.d214.jhhs.822192.shoppingList;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ProfileOrganizer;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -13,35 +13,40 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var newItemTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    var items:[Item] = []
+    var Names:[Name] = []
     var currentView = ViewController.self
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
+        let person1 = Name(name: "Bob", hobby: "Coding", age: 20, gender: "Male")
+        let person2 = Name(name: "Jones", hobby: "Running", age: 17, gender: "Male")
+        let person3 = Name(name: "Lucy", hobby: "Drawing", age: 4096, gender: "Female")
         
         
-        let itemOne = Item(name: "Milk", quantity: 2)
-        let itemTwo = Item(name: "Blueberries")
-        items = [itemOne,itemTwo]
-        let itemThree = Item(name: "Crackers")
-        let itemFour = Item(name: "Chocolate Milk")
-        let itemFive = Item(name: "Cake")
-        items.append(itemThree)
-        items.append(itemFive)
-        items.append(itemFour)
+        
+        Names.append(person1)
+        Names.append(person2)
+        Names.append(person3)
         
     }
     
-    @IBAction func newItemButtonPressed(_ sender: Any) {
-        if let newItemName = newItemTextField.text, newItemName != ""{
-            let newItem = Item(name: newItemName)
-            items.append(newItem)
-            tableView.reloadData()
-        }
-    }
+    
+    
+//    if let newItemName = newItemTextField.text, newItemName != ""{
+//    let newItem = Item(name: newItemName)
+//    items.append(newItem)
+//    tableView.reloadData()
+    
+    
+    
+    
+    
+    
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return items.count
+        return Names.count
         // adds the number of items in the array, which is how many rows we would need for the cells.
         //self explanatory,
     }
@@ -52,14 +57,14 @@ class ViewController: UIViewController, UITableViewDataSource {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "myCell"){
             // takes the index of the cell and matches it with the index of the array, places name in correct cell number
             //[] is for the index number which would be the same as the array, the .name is from the Item class, which gets the string of the item.
-            let itemName = items[indexPath.row].name
-            let itemQuantity = items[indexPath.row].quantity
+            let personName = Names[indexPath.row].name
+            let personAge = Names[indexPath.row].age
             cell.detailTextLabel?.textColor = UIColor.white
             cell.textLabel?.textColor = UIColor.white
             cell.detailTextLabel?.backgroundColor = UIColor.blue
             cell.textLabel?.backgroundColor = UIColor.blue
-            cell.textLabel?.text = itemName
-            cell.detailTextLabel?.text = "Quantity:\(itemQuantity)"
+            cell.textLabel?.text = personName
+            cell.detailTextLabel?.text = "Age:\(personAge)"
             return cell
         } else {
             return UITableViewCell()
@@ -70,8 +75,8 @@ class ViewController: UIViewController, UITableViewDataSource {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let indexPath = tableView.indexPathForSelectedRow{
             let nvc = segue.destination as! SecondViewController
-            let currentItem = items[indexPath.row]
-            nvc.passedItem = currentItem
+            let currentItem = Names[indexPath.row]
+            nvc.passedName = currentItem
             
             
         }

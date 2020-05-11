@@ -11,11 +11,17 @@ import UIKit
 class SecondViewController: UIViewController {
 
     @IBOutlet weak var quantityLabel: UILabel!
-    var passedItem: Item!
+    @IBOutlet weak var hobbyLabel: UILabel!
+    @IBOutlet weak var genderLabel: UILabel!
+    
+    
+    var passedName: Name!
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = passedItem.name
-        quantityLabel.text = "Quantity:\(passedItem.quantity)"
+        self.title = passedName.name
+        quantityLabel.text = "Age:\(passedName.age)"
+        hobbyLabel.text = "Hobby: \(passedName.hobby)"
+        genderLabel.text = "Gender: \(passedName.gender)"
         
         // Do any additional setup after loading the view.
     }
