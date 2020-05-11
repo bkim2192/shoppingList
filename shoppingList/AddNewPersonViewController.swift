@@ -9,7 +9,13 @@
 import UIKit
 
 class AddNewPersonViewController: UIViewController {
-
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var ageTextField: UITextField!
+    @IBOutlet weak var hobbyTextField: UITextField!
+    @IBOutlet weak var genderTextField: UITextField!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,5 +32,28 @@ class AddNewPersonViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    
+    
+    @IBAction func whenAddButtonPressed(_ sender: Any) {
+        
+        if let hobby = hobbyTextField.text, let gender = genderTextField.text, let name = nameTextField.text, let age = ageTextField.text {
+            var person = Name(name: name, hobby: hobby, age: Int(age)!, gender: gender)
+            
+        }
+        
+        if let name = nameTextField.text, let age = ageTextField.text {
+            var person = Name(name: name, age: Int(age)!)
+            UserDefaults.standard.set(person, forKey: "person")
+        } else if let hobby = hobbyTextField.text, let gender = genderTextField.text, let name = nameTextField.text, let age = ageTextField.text {
+            var person = Name(name: name, hobby: hobby, age: Int(age)!, gender: gender)
+            UserDefaults.standard.set(person, forKey: "person")
+        }
+        
+        
+    
+        
+    }
+    
 
 }

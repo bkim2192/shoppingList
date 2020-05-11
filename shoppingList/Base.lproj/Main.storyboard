@@ -67,7 +67,11 @@
                             <barButtonItem title="Remove" id="JZs-5T-XnC"/>
                             <barButtonItem systemItem="refresh" id="FGq-AN-cx8"/>
                         </leftBarButtonItems>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BY7-TL-jCI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="BY7-TL-jCI">
+                            <connections>
+                                <segue destination="2DX-lu-KlG" kind="show" id="ruZ-uh-6Np"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="2sh-mi-rEy" id="7td-ce-5a2"/>
@@ -77,20 +81,72 @@
             </objects>
             <point key="canvasLocation" x="905" y="-672"/>
         </scene>
-        <!--View Controller-->
+        <!--Add New Person View Controller-->
         <scene sceneID="6kI-Wn-b1c">
             <objects>
-                <viewController id="2DX-lu-KlG" sceneMemberID="viewController">
+                <viewController id="2DX-lu-KlG" customClass="AddNewPersonViewController" customModule="ProfileOrganizer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sjQ-Yz-iPq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add New Person" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ob2-Ue-XjN">
+                                <rect key="frame" x="90" y="114" width="235" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="33"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name (Required)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7cQ-aK-VgY">
+                                <rect key="frame" x="115" y="197" width="186" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Age (Required)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gk0-Iw-9ps">
+                                <rect key="frame" x="115" y="257" width="186" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hobby" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NAT-Ap-ceg">
+                                <rect key="frame" x="115" y="320" width="186" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Gender" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d1T-FQ-yJn">
+                                <rect key="frame" x="115" y="388" width="186" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIu-Ay-ayR">
+                                <rect key="frame" x="161" y="537" width="92" height="66"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <state key="normal" title="Add!">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="whenAddButtonPressed:" destination="2DX-lu-KlG" eventType="touchUpInside" id="ViE-we-dak"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="TJA-l4-4J6"/>
                     </view>
+                    <navigationItem key="navigationItem" id="QaK-R8-yyz"/>
+                    <connections>
+                        <outlet property="ageTextField" destination="gk0-Iw-9ps" id="rRa-u5-IvP"/>
+                        <outlet property="genderTextField" destination="d1T-FQ-yJn" id="iEw-x9-kAh"/>
+                        <outlet property="hobbyTextField" destination="NAT-Ap-ceg" id="zhU-iS-Pfp"/>
+                        <outlet property="nameTextField" destination="7cQ-aK-VgY" id="9aV-rj-d0S"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zCm-75-KrT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1583" y="-1308"/>
+            <point key="canvasLocation" x="1582.608695652174" y="-1308.4821428571429"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="hiS-j8-zH7">
