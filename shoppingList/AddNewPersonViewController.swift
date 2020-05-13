@@ -22,6 +22,39 @@ class AddNewPersonViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+   
+     
+    @IBAction func whenAddButtonPressed(_ sender: Any) {
+        
+       
+        
+        if let name = nameTextField.text, let age = Int(ageTextField.text!) {
+            
+            var person = Name(name: name, age: age)
+            
+            Names.append(person)
+            
+            
+        } else if let hobby = hobbyTextField.text, let gender = genderTextField.text, let name = nameTextField.text, let age = Int(ageTextField.text!) {
+            var person = Name(name: name, hobby: hobby, age: age, gender: gender)
+            Names.append(person)
+            
+            
+        }
+    }
+    
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Here to
+       
+        
+      
+        //Here
+        
+        
+            }
 
     /*
     // MARK: - Navigation
@@ -35,25 +68,7 @@ class AddNewPersonViewController: UIViewController {
     
     
     
-    @IBAction func whenAddButtonPressed(_ sender: Any) {
-        
-        if let hobby = hobbyTextField.text, let gender = genderTextField.text, let name = nameTextField.text, let age = ageTextField.text {
-            var person = Name(name: name, hobby: hobby, age: Int(age)!, gender: gender)
-            
-        }
-        
-        if let name = nameTextField.text, let age = ageTextField.text {
-            var person = Name(name: name, age: Int(age)!)
-            UserDefaults.standard.set(person, forKey: "person")
-        } else if let hobby = hobbyTextField.text, let gender = genderTextField.text, let name = nameTextField.text, let age = ageTextField.text {
-            var person = Name(name: name, hobby: hobby, age: Int(age)!, gender: gender)
-            UserDefaults.standard.set(person, forKey: "person")
-        }
-        
-        
     
-        
-    }
     
 
 }

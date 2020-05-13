@@ -9,30 +9,21 @@
 //COmment 2
 //hahaha1
 import UIKit
+var Names:[Name] = [Name(name: "Bob", hobby: "Coding", age: 20, gender: "Male"), Name(name: "Jones", hobby: "Running", age: 17, gender: "Male"), Name(name: "Lucy", hobby: "Drawing", age: 4096, gender: "Female")]
 
 class ViewController: UIViewController, UITableViewDataSource {
     @IBOutlet weak var newItemTextField: UITextField!
     @IBOutlet weak var tableView: UITableView!
-    var Names:[Name] = []
+    var passedProfile: Name!
+    
     var currentView = ViewController.self
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.dataSource = self
-        let person1 = Name(name: "Bob", hobby: "Coding", age: 20, gender: "Male")
-        let person2 = Name(name: "Jones", hobby: "Running", age: 17, gender: "Male")
-        let person3 = Name(name: "Lucy", hobby: "Drawing", age: 4096, gender: "Female")
         
         
-        
-        Names.append(person1)
-        Names.append(person2)
-        Names.append(person3)
-        
-        var one = UserDefaults.standard.data(forKey: "person")
-        
-        Names.append()
-        
+    
     }
     
     
@@ -42,8 +33,67 @@ class ViewController: UIViewController, UITableViewDataSource {
 //    items.append(newItem)
 //    tableView.reloadData()
     
+    func sortNames(){
+        
+        var alphabet = ["A":1 , "B": 2, "C": 3, "D": 4, "E": 5, "F": 6, "G": 7, "H": 8, "I": 9, "J": 10, "K": 11, "L": 12, "M": 13, "N": 14, "O": 15, "P": 16, "Q": 17, "R": 18, "S": 19, "T": 20, "U": 21, "V": 22, "W": 23, "X": 24, "Y": 25, "Z": 26,]
     
+        for i in 0...Names.count {
+            var num = 0
+            var num2 = 1
+           for i in Names {
+             
+             var nextName = Names[num2]
+             var firstCharacter = Names[num].name.first!
+            var firstChar = firstCharacter.uppercased()
+            var secondChar = nextName.name.first!.uppercased()
+            
+            if alphabet[firstChar]! > alphabet[secondChar]! {
+                var fre = Names[num]
+                Names[num] = Names[num2]
+                Names[num2] = fre
+            }
+            
+            if alphabet[firstChar]! == alphabet[secondChar]! {
+                var bool = false
+                var ar = Array(Names[num].name)
+                var ar2 = Array(Names[num2].name)
+                while bool == false {
+        
+                ar.remove(at: 0)
+                ar2.remove(at: 0)
+                
+                var er = String(ar)
+                var er2 = String(ar2)
+                
+                firstChar = er.first!.uppercased()
+                secondChar = er2.first!.uppercased()
+                
+            if alphabet[firstChar]! > alphabet[secondChar]! {
+                var fre = Names[num]
+                Names[num] = Names[num2]
+                Names[num2] = fre
+                bool = false
+            } else {
+                bool = true
+            }
     
+        }
+            }
+            
+             num += 1
+             
+            if num2 < Names.count - 1{
+                num2 += 1
+            }
+        }
+            
+        }
+    }
+
+    @IBAction func refreshButton(_ sender: Any) {
+        sortNames()
+        tableView.reloadData()
+    }
     
     
     
@@ -76,15 +126,8 @@ class ViewController: UIViewController, UITableViewDataSource {
         }
         
     }
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let indexPath = tableView.indexPathForSelectedRow{
-            let nvc = segue.destination as! SecondViewController
-            let currentItem = Names[indexPath.row]
-            nvc.passedName = currentItem
-            
-            
-        }
-    }
+    
+    
     // +++++++++++++++++++++++++++++
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         
@@ -98,8 +141,13 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            Names.remove(at:indexPath.row)
             tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+            
+            reloadInputViews()
+            tableView.reloadData()
         }
+        
     }
   
     
